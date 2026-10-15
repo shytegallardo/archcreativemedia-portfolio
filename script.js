@@ -167,10 +167,50 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   modalVideo.addEventListener("loadeddata", () => { modalVideoError.hidden = true; });
   const modalMedia = $(".modal-image", modal);
-  const normalizeMedia = project => [
-    ...(project.video ? [{ type: "video", src: project.video }] : []),
-    ...normalizeImages(project).map((src, index) => ({ type: "image", src, index }))
-  ];
+
+  // Bunny Stream uses an embedded player URL instead of a direct MP4 file.
+  // Only accept official HTTPS embed links, not pasted iframe HTML.
+  const normalizeBunnyUrl = value => {
+    if (typeof value !== "string" || !value.trim()) return "";
+    try {
+      const url = new URL(value.trim());
+      if (url.protocol !== "https:" || url.hostname !== "player.mediadelivery.net" ||
+          !/^\/embed\/\d+\/[a-f0-9-]+\/?$/i.test(url.pathname)) return "";
+      url.searchParams.set("autoplay", "false");
+      url.searchParams.set("preload", "false");
+      return url.href;
+    } catch (_) { return ""; }
+  };
+
+  const normalizeMedia = project => {
+    const bunnyUrl = normalizeBunnyUrl(project.bunnyEmbed);
+    return [
+      // Prefer the Bunny embed to an older local MP4 path, so the video isn't listed twice.
+      ...(bunnyUrl ? [{ type: "bunny", src: bunnyUrl }] :
+        project.video ? [{ type: "video", src: project.video }] : []),
+      ...normalizeImages(project).map((src, index) => ({ type: "image", src, index }))
+    ];
+  };
+
+  // Inject a Bunny iframe into the existing media panel; no HTML edit required.
+  const bunnyFrame = document.createElement("iframe");
+  bunnyFrame.id = "modalBunnyFrame";
+  bunnyFrame.title = "Project video";
+  bunnyFrame.setAttribute("allow", "encrypted-media; picture-in-picture; fullscreen");
+  bunnyFrame.setAttribute("allowfullscreen", "");
+  bunnyFrame.setAttribute("loading", "lazy");
+  bunnyFrame.referrerPolicy = "strict-origin-when-cross-origin";
+  bunnyFrame.hidden = true;
+  bunnyFrame.style.cssText =
+    "display:none;width:100%;height:auto;aspect-ratio:16/9;border:0;background:#000;margin-inline:auto;";
+  modalMedia.appendChild(bunnyFrame);
+
+  const resetBunny = () => {
+    // Unloading the iframe stops playback when leaving the video or closing the modal.
+    bunnyFrame.removeAttribute("src");
+    bunnyFrame.hidden = true;
+    bunnyFrame.style.display = "none";
+  };
   const resetVideo = () => {
     modalVideo.pause();
     try { modalVideo.currentTime = 0; } catch (_) {}
@@ -195,13 +235,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const media = normalizeMedia(p);
     const item = media[currentImage];
     resetVideo();
+    resetBunny();
     modalVideoError.hidden = true;
     const isVideo = item?.type === "video";
+    const isBunny = item?.type === "bunny";
+    const hasVideo = isVideo || isBunny;
     modalVideo.hidden = !isVideo;
-    modalImage.hidden = isVideo;
-    modalMedia.classList.toggle("has-video", isVideo);
-    modalMedia.classList.toggle("has-contained-images", !isVideo && p.galleryFit === "contain");
-    if (isVideo) {
+    modalImage.hidden = hasVideo;
+    modalMedia.classList.toggle("has-video", hasVideo);
+    modalMedia.classList.toggle("has-bunny", isBunny);
+    modalMedia.classList.toggle("has-contained-images", !hasVideo && p.galleryFit === "contain");
+
+    if (isBunny) {
+      bunnyFrame.title = `${p.title} — project video`;
+      // Optional: add bunnyAspectRatio: "9/16" to a vertical-video project in content.js.
+      const portrait = p.bunnyAspectRatio === "9/16";
+      bunnyFrame.style.aspectRatio = portrait ? "9 / 16" : "16 / 9";
+      bunnyFrame.style.maxWidth = portrait ? "420px" : "100%";
+      bunnyFrame.style.display = "block";
+      bunnyFrame.hidden = false;
+      bunnyFrame.src = item.src;
+    } else if (isVideo) {
       modalVideo.src = item.src;
       modalVideo.poster = normalizeImages(p)[0] || "";
       modalVideoLink.href = item.src;
@@ -250,6 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeProject = () => {
     if (modal.hidden) return;
     resetVideo();
+    resetBunny();
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
@@ -278,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowLeft" && !modalPrev.disabled) { e.preventDefault(); modalPrev.click(); return; }
     if (e.key === "ArrowRight" && !modalNext.disabled) { e.preventDefault(); modalNext.click(); return; }
     if (e.key !== "Tab") return;
-    const focusables = $$('button:not([disabled]), a[href]:not([hidden]), video[controls]:not([hidden])', modal).filter(el => !el.hidden && el.offsetParent !== null);
+    const focusables = $$('button:not([disabled]), a[href]:not([hidden]), video[controls]:not([hidden]), iframe:not([hidden])', modal).filter(el => !el.hidden && el.offsetParent !== null);
     if (!focusables.length) return;
     const first = focusables[0], last = focusables[focusables.length - 1];
     if (e.shiftKey && (document.activeElement === first || document.activeElement === modalCard)) { e.preventDefault(); last.focus(); }
