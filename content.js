@@ -37,7 +37,7 @@ const SITE_CONTENT = {
   description: "A claymation music video Ad that sells Oats Overnight to people who skip breakfast and have never thought about buying it.",
 
   image: "assets/images/oats-overnight-claymation-ad.jpg",
-  bunnyEmbed: "https://player.mediadelivery.net/embed/YOUR_LIBRARY_ID/YOUR_VIDEO_ID",
+  bunnyEmbed: "https://player.mediadelivery.net/embed/780421/28c4af33-717e-4c31-ac23-f2c3ca2201c2",
   bunnyAspectRatio: "9/16",
   caseStudy: "case-studies/the-6am-problem.html",
 
