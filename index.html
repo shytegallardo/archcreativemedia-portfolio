@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Archilles Vivero — a creative portfolio covering branding, design, marketing, storytelling, and digital experiences.">
+  <meta name="author" content="Archilles Vivero">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Archilles Vivero — Portfolio">
+  <meta property="og:description" content="Branding, design, marketing, storytelling, and digital experiences by Archilles Vivero.">
+  <meta property="og:image" content="assets/images/hero-portrait.jpeg">
+  <meta property="og:site_name" content="Archilles Vivero Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Archilles Vivero — Portfolio">
+  <meta name="twitter:description" content="Branding, design, marketing, storytelling, and digital experiences by Archilles Vivero.">
+  <meta name="twitter:image" content="assets/images/hero-portrait.jpeg">
+  <title>Archilles Vivero — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="header">
+      <a class="brand" href="#top" data-brand aria-label="Go to homepage">Archilles Vivero</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="#work">Creatives</a>
+        <a href="#case-studies">Case Studies / Research</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="portfolio-heading">
+        <h1 class="hero-title" id="portfolio-heading">PORTFOLIO</h1>
+        <div class="hero-images" id="heroImages" aria-label="Portfolio preview images"></div>
+      </section>
+
+      <section class="intro section-pad" aria-labelledby="intro-title">
+        <h2 class="intro-title" id="intro-title" data-intro-title>Where creativity meets strategy</h2>
+        <p class="intro-copy" data-intro-copy>I bring together branding, design, marketing, and storytelling to create work that connects with people and supports real business goals.</p>
+      </section>
+
+      <section id="work" class="work section-pad" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div>
+            <h2 class="eyebrow" id="work-title">Creatives</h2>
+          </div>
+          <p class="muted">A selection of projects, experiments, and client work.</p>
+        </div>
+
+        <div class="carousel" aria-roledescription="carousel" aria-label="Selected projects">
+          <div class="carousel-toolbar">
+            <p class="carousel-status" id="carouselStatus" aria-live="polite"></p>
+            <div class="carousel-controls">
+              <button class="carousel-button" id="prevProject" type="button" aria-label="Previous projects">←</button>
+              <button class="carousel-button" id="nextProject" type="button" aria-label="Next projects">→</button>
+            </div>
+          </div>
+          <div class="project-grid" id="projectGrid" tabindex="0" aria-describedby="carouselHint"></div>
+          <p class="carousel-hint" id="carouselHint">Drag or swipe to browse. Use the arrow buttons or keyboard arrows to move between projects.</p>
+        </div>
+      </section>
+
+      <section id="case-studies" class="case-studies section-pad" aria-labelledby="case-studies-title">
+        <div class="section-heading">
+          <h2 class="eyebrow" id="case-studies-title">Case Studies / Research</h2>
+          <p class="muted">Strategy, process, insights, and findings.</p>
+        </div>
+        <div class="study-grid" id="caseStudyGrid"></div>
+        <p class="study-empty" id="caseStudyEmpty">Case studies and research coming soon.</p>
+      </section>
+
+      <section id="about" class="about section-pad" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">ABOUT</p>
+          <h2 id="about-title" data-about-title>Creative thinker. Strategic builder. Detail-oriented maker.</h2>
+        </div>
+        <div class="about-copy">
+          <p data-about-copy>I’m a creative professional focused on turning ideas into clear visual identities, campaigns, digital experiences, and content systems.</p>
+          <p data-about-copy-2>My approach combines creativity with strategy: understand the audience, find the strongest idea, and execute it with intention.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-pad" aria-labelledby="contact-title">
+        <p class="eyebrow">LET'S WORK TOGETHER</p>
+        <h2 id="contact-title" data-contact-title>Have a project in mind?</h2>
+        <a class="contact-email" data-email href="mailto:hello@example.com">hello@example.com ↗</a>
+      </section>
+    </main>
+
+    <footer class="footer section-pad">
+      <div class="footer-main">
+        <div>
+          <a class="brand" href="#top" data-brand>Archilles Vivero</a>
+          <p class="footer-location" data-location>Philippines · Available worldwide</p>
+          <p class="copyright">© <span id="year"></span> <span data-brand>Archilles Vivero</span>. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#work">Creatives</a>
+          <a href="#case-studies">Case Studies / Research</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="socials" id="socials" aria-label="Social links"></div>
+    </footer>
+  </div>
+
+  <div class="modal" id="projectModal" aria-hidden="true" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" tabindex="-1">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close project dialog">×</button>
+      <div class="modal-image">
+        <img id="modalImage" alt="" decoding="async">
+        <video id="modalVideo" controls playsinline preload="metadata" tabindex="0" hidden>Your browser does not support HTML video.</video>
+        <p id="modalVideoError" class="modal-video-error" role="status" hidden>Unable to play this clip. <a id="modalVideoLink">Open the video directly</a>.</p>
+        <div class="modal-gallery-controls" id="modalGalleryControls" hidden>
+          <button type="button" class="modal-gallery-button" id="modalPrev" aria-label="Previous project media">←</button>
+          <span class="modal-gallery-count" id="modalGalleryCount" aria-live="polite"></span>
+          <button type="button" class="modal-gallery-button" id="modalNext" aria-label="Next project media">→</button>
+        </div>
+      </div>
+      <div class="modal-content">
+        <p class="eyebrow" id="modalCategory"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <div class="modal-meta" id="modalMeta"></div>
+        <a class="modal-case-study" id="modalCaseStudy" href="#" target="_blank" rel="noopener noreferrer" hidden>View case study ↗</a>
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Archilles Vivero",
+    "jobTitle":"Creative Professional",
+    "url":"",
+    "sameAs":[]
+  }
+  </script>
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
