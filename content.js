@@ -31,18 +31,19 @@ const SITE_CONTENT = {
   ],
 
   projects: [
-    {
-      title: "Oats Overnight — Claymation Ad",
-      category: "Video Advertising",
-      description: "A claymation music video Ad that sells Oats Overnight to people who skip breakfast and have never thought about buying it.",
+  {
+  title: "Oats Overnight — Claymation Ad",
+  category: "Video Advertising",
+  description: "A claymation music video Ad that sells Oats Overnight to people who skip breakfast and have never thought about buying it.",
 
-      image: "assets/images/oats-overnight-claymation-ad.jpg",
-       bunnyEmbed: "https://player.mediadelivery.net/embed/YOUR_LIBRARY_ID/YOUR_VIDEO_ID",
-      caseStudy: "case-studies/the-6am-problem.html",
+  image: "assets/images/oats-overnight-claymation-ad.jpg",
+  bunnyEmbed: "https://player.mediadelivery.net/embed/YOUR_LIBRARY_ID/YOUR_VIDEO_ID",
+  bunnyAspectRatio: "9/16",
+  caseStudy: "case-studies/the-6am-problem.html",
 
-      client: "Oats Overnight",
-      services: "Creative Direction · Storyboarding · AI Video"
-    },
+  client: "Oats Overnight",
+  services: "Creative Direction · Storyboarding · AI Video"
+},
     {
       title: "Abib — Carousel Ad",
       category: "INTERACTIVE / MULTI-MEDIA ADVERTISING",
