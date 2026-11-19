@@ -47,18 +47,6 @@ const SITE_CONTENT = {
 
       image: "assets/images/Metabolae-Creative-Brief-Enjoy-the-Table-Keep-the-Routine.png",
       briefPdf: "assets/pdfs/Metabolae-Creative-Brief-Enjoy-the-Table-Keep-the-Routine.pdf",
-      
-      // Add your case-study page path or URL here when ready.
-      caseStudy: "case-studies/abib-carousel.html",
-      galleryFit: "contain",
-      images: [
-        "assets/images/abib/abib-slide-1.png",
-        "assets/images/abib/abib-slide-2.png",
-        "assets/images/abib/abib-slide-3.png",
-        "assets/images/abib/abib-slide-4.png",
-        "assets/images/abib/abib-slide-5.png",
-        "assets/images/abib/abib-slide-6.png"
-      ]
     },
     {
       title: 'Brunaé — "Somewhere in My Forties"',      
