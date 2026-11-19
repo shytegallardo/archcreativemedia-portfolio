@@ -36,7 +36,7 @@ const SITE_CONTENT = {
   category: "CLAYMATION AD",
   description: "A claymation music video ad that sells Brunaé's tanning bundle to fair-skinned skeptics who've seen the ads but never believed it would work on them.",
 
-  image: "assets/images/oats-overnight-claymation-ad.jpg",
+  image: "assets/images/brunae-3-weeks-after-bali.png",
   bunnyEmbed: "https://player.mediadelivery.net/embed/780421/28c4af33-717e-4c31-ac23-f2c3ca2201c2",
   bunnyAspectRatio: "9/16",
   caseStudy: "case-studies/the-6am-problem.html",
