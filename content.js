@@ -55,10 +55,6 @@ const SITE_CONTENT = {
     
       image: "assets/images/Brunae-Somewhere-in-My-Forties.png",
       briefPdf: "assets/pdfs/Brunae-Somewhere-in-My-Forties.pdf",
-
-      client: "Client Name",
-      services: ["Social Strategy", "Content Design", "Copywriting"],
-      caseStudy: ""
     },
     {
       title: "Project Four — Digital Experience",
