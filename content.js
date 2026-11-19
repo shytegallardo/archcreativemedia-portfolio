@@ -44,7 +44,8 @@ const SITE_CONTENT = {
       title: 'Metabolae — "Enjoy the Table, Keep the Routine"',      
       category: "STATIC AD",
       description: "A warm holiday static: one family kitchen, one simple habit. It says you can enjoy the meals that matter and still keep your daily routine easy.",
- 
+
+      image: "assets/images/Metabolae-Creative-Brief-Enjoy-the-Table-Keep-the-Routine.png",
       briefPdf: "assets/pdfs/Metabolae-Creative-Brief-Enjoy-the-Table-Keep-the-Routine.pdf",
       
       // Add your case-study page path or URL here when ready.
