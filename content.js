@@ -52,7 +52,9 @@ const SITE_CONTENT = {
       title: 'Brunaé — "Somewhere in My Forties"',      
       category: "UGC AD",
       description: "A storytelling UGC Reel about a woman who thought sheʼd aged out of tanning, and the holiday she got that version of herself back.",
-      images: ["assets/images/project-03.svg"],
+    
+      image: "assets/images/Brunae-Somewhere-in-My-Forties.png",
+
       client: "Client Name",
       services: ["Social Strategy", "Content Design", "Copywriting"],
       caseStudy: ""
