@@ -32,9 +32,9 @@ const SITE_CONTENT = {
 
   projects: [
   {
-  title: "Oats Overnight — Claymation Ad",
-  category: "Video Advertising",
-  description: "A claymation music video Ad that sells Oats Overnight to people who skip breakfast and have never thought about buying it.",
+  title: 'Brunaé — "3 Weeks After Bali"',
+  category: "CLAYMATION AD",
+  description: "A claymation music video ad that sells Brunaé's tanning bundle to fair-skinned skeptics who've seen the ads but never believed it would work on them.",
 
   image: "assets/images/oats-overnight-claymation-ad.jpg",
   bunnyEmbed: "https://player.mediadelivery.net/embed/780421/28c4af33-717e-4c31-ac23-f2c3ca2201c2",
