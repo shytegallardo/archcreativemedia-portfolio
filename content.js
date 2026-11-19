@@ -39,14 +39,14 @@ const SITE_CONTENT = {
   image: "assets/images/brunae-3-weeks-after-bali.png",
   // Optional PDF popup. To add another, upload a PDF and set briefPdf on its project.
   briefPdf: "assets/pdfs/Brunae-Three-Weeks-After-Bali-Creative-Brief.pdf",
-
-  client: "Brunaé Body (spec concept)",
-  services: "Creative Direction · Storyboarding · AI Video"
 },
     {
       title: 'Metabolae — "Enjoy the Table, Keep the Routine"',      
       category: "STATIC AD",
       description: "A warm holiday static: one family kitchen, one simple habit. It says you can enjoy the meals that matter and still keep your daily routine easy.",
+ 
+      briefPdf: "assets/pdfs/Metabolae-Creative-Brief-Enjoy-the-Table-Keep-the-Routine.pdf",
+      
       // Add your case-study page path or URL here when ready.
       caseStudy: "case-studies/abib-carousel.html",
       galleryFit: "contain",
