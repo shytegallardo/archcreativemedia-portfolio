@@ -54,6 +54,7 @@ const SITE_CONTENT = {
       description: "A storytelling UGC Reel about a woman who thought sheʼd aged out of tanning, and the holiday she got that version of herself back.",
     
       image: "assets/images/Brunae-Somewhere-in-My-Forties.png",
+      briefPdf: "assets/pdfs/Brunae-Somewhere-in-My-Forties.pdf",
 
       client: "Client Name",
       services: ["Social Strategy", "Content Design", "Copywriting"],
