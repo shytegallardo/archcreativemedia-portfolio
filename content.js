@@ -37,11 +37,10 @@ const SITE_CONTENT = {
   description: "A claymation music video ad that sells Brunaé's tanning bundle to fair-skinned skeptics who've seen the ads but never believed it would work on them.",
 
   image: "assets/images/brunae-3-weeks-after-bali.png",
-  bunnyEmbed: "https://player.mediadelivery.net/embed/780421/28c4af33-717e-4c31-ac23-f2c3ca2201c2",
-  bunnyAspectRatio: "9/16",
-  caseStudy: "case-studies/the-6am-problem.html",
+  // Optional PDF popup. To add another, upload a PDF and set briefPdf on its project.
+  briefPdf: "assets/pdfs/Brunae-Three-Weeks-After-Bali-Creative-Brief.pdf",
 
-  client: "Oats Overnight",
+  client: "Brunaé Body (spec concept)",
   services: "Creative Direction · Storyboarding · AI Video"
 },
     {

@@ -185,3 +185,27 @@ img { max-width: 100%; }
   .modal-image.has-video { min-height:0; max-height:none; }
   .modal-image video { height:auto; max-height:45vh; }
 }
+
+
+/* Reusable Creative Brief PDF viewer — independent of existing media modal. */
+.pdf-modal { z-index:40; }
+.pdf-dialog { position:relative; z-index:1; width:min(1120px, 100%); height:min(92vh, 980px); display:flex; flex-direction:column; background:#fff; box-shadow:0 24px 80px rgba(0,0,0,.24); outline:none; }
+.pdf-dialog-header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 24px; border-bottom:1px solid #dedbd7; }
+.pdf-dialog-heading { min-width:0; }
+.pdf-dialog-heading .eyebrow { margin:0 0 5px; font-size:10px; }
+.pdf-dialog-heading h2 { margin:0; font-size:clamp(17px,2vw,24px); line-height:1.15; }
+.pdf-dialog-actions { display:flex; align-items:center; gap:18px; flex-shrink:0; }
+.pdf-dialog-actions a { color:inherit; font-size:12px; text-decoration:underline; text-underline-offset:4px; }
+.pdf-dialog-close { display:grid; place-items:center; border:0; background:transparent; font-size:30px; width:40px; height:40px; cursor:pointer; }
+.pdf-frame { display:block; flex:1; width:100%; min-height:0; border:0; background:#f4f3f1; }
+.pdf-fallback { margin:0; padding:8px 24px; background:#fff; font-size:11px; color:var(--muted); }
+.pdf-fallback a { text-decoration:underline; }
+@media (max-width: 650px) {
+  .pdf-modal { padding:6px; }
+  .pdf-dialog { height:96dvh; max-height:96dvh; }
+  .pdf-dialog-header { align-items:flex-start; flex-direction:column; gap:9px; padding:12px 14px; }
+  .pdf-dialog-actions { width:100%; justify-content:space-between; gap:8px; }
+  .pdf-dialog-actions a { font-size:11px; }
+  .pdf-dialog-close { height:32px; width:32px; }
+  .pdf-fallback { padding:8px 14px; }
+}

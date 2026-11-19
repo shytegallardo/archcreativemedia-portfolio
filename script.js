@@ -272,9 +272,71 @@ document.addEventListener("DOMContentLoaded", () => {
     modalGalleryControls.hidden = media.length <= 1;
   };
 
+  // Reusable PDF dialog for Creative Brief projects.
+  const briefModal = $("#briefModal");
+  const briefDialog = $(".pdf-dialog", briefModal);
+  const briefFrame = $("#briefFrame");
+  const briefTitle = $("#briefTitle");
+  const briefOpen = $("#briefOpen");
+  const briefDownload = $("#briefDownload");
+  const briefFallback = $("#briefFallback");
+  let briefPreviousFocus = null;
+
+  const resolveBriefPdf = value => {
+    if (typeof value !== "string" || !value.trim()) return "";
+    try {
+      const url = new URL(value.trim(), document.baseURI);
+      // Local PDFs hosted with this GitHub Pages site (no third-party embedded URLs).
+      if (url.origin !== location.origin || !/\.pdf$/i.test(url.pathname)) return "";
+      return url.href;
+    } catch (_) { return ""; }
+  };
+
+  const openBrief = (project, url) => {
+    briefPreviousFocus = document.activeElement;
+    briefTitle.textContent = project.title || "Creative brief";
+    briefOpen.href = url;
+    briefDownload.href = url;
+    briefFallback.href = url;
+    briefFrame.title = `${project.title || "Creative brief"} — PDF`;
+    briefFrame.src = url;
+    briefModal.hidden = false;
+    briefModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => briefModal.classList.add("open"));
+    briefDialog.focus();
+  };
+
+  const closeBrief = () => {
+    if (briefModal.hidden) return;
+    briefFrame.removeAttribute("src");
+    briefModal.classList.remove("open");
+    briefModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    briefModal.hidden = true;
+    if (briefPreviousFocus?.focus) briefPreviousFocus.focus();
+  };
+
+  $$('[data-close-brief]').forEach(el => el.addEventListener("click", closeBrief));
+  briefModal.addEventListener("keydown", e => {
+    if (e.key === "Escape") { e.preventDefault(); closeBrief(); return; }
+    if (e.key !== "Tab") return;
+    const focusables = $$("a[href], button:not([disabled]), iframe", briefDialog)
+      .filter(el => el.offsetParent !== null);
+    if (!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && (document.activeElement === first || document.activeElement === briefDialog)) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
   const openProject = index => {
     const p = c.projects[index];
     if (!p) return;
+    const briefUrl = resolveBriefPdf(p.briefPdf);
+    if (briefUrl) { openBrief(p, briefUrl); return; }
     currentProject = index;
     currentImage = 0;
     previousFocus = document.activeElement;

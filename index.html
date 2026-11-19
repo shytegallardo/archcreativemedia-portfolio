@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div class="site-shell">
@@ -136,6 +136,28 @@
     </article>
   </div>
 
+
+  <!-- A reusable Creative Brief PDF dialog. Any project with briefPdf opens this. -->
+  <div class="modal pdf-modal" id="briefModal" aria-hidden="true" hidden>
+    <div class="modal-backdrop" data-close-brief></div>
+    <section class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="briefTitle" aria-describedby="briefDescription" tabindex="-1">
+      <header class="pdf-dialog-header">
+        <div class="pdf-dialog-heading">
+          <p class="eyebrow">CREATIVE BRIEF</p>
+          <h2 id="briefTitle">Creative brief</h2>
+          <p id="briefDescription" class="visually-hidden">Scroll through the document below, or open it in a new tab.</p>
+        </div>
+        <div class="pdf-dialog-actions">
+          <a id="briefOpen" href="#" target="_blank" rel="noopener noreferrer">Open PDF ↗</a>
+          <a id="briefDownload" href="#" download>Download PDF ↓</a>
+          <button type="button" class="pdf-dialog-close" data-close-brief aria-label="Close creative brief">×</button>
+        </div>
+      </header>
+      <iframe id="briefFrame" class="pdf-frame" title="Creative brief PDF document" loading="lazy"></iframe>
+      <p class="pdf-fallback">PDF not displaying? <a id="briefFallback" href="#" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.</p>
+    </section>
+  </div>
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -146,7 +168,7 @@
     "sameAs":[]
   }
   </script>
-  <script src="content.js?v=3"></script>
-  <script src="script.js"></script>
+  <script src="content.js?v=4"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
