@@ -61,9 +61,9 @@ const SITE_CONTENT = {
       ]
     },
     {
-      title: "Project Three — Social Content",
-      category: "Social Media",
-      description: "A short description of the social media redesign, content system, or campaign.",
+      title: 'Brunaé — "Somewhere in My Forties"',      
+      category: "UGC AD",
+      description: "A storytelling UGC Reel about a woman who thought sheʼd aged out of tanning, and the holiday she got that version of herself back.",
       images: ["assets/images/project-03.svg"],
       client: "Client Name",
       services: ["Social Strategy", "Content Design", "Copywriting"],
