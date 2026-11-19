@@ -209,3 +209,7 @@ img { max-width: 100%; }
   .pdf-dialog-close { height:32px; width:32px; }
   .pdf-fallback { padding:8px 14px; }
 }
+/* Hide Case Studies / Research section */
+#case-studies {
+  display: none !important;
+}
